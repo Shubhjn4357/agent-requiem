@@ -1,6 +1,115 @@
 # Master Guidance Index (100+ Files)
 
-Welcome to the Agent Memory Requime Comprehensive Agent Guidance System. Below is the organized map of 111 specialized markdown files, providing a complete framework for development, design, security, and management.
+Welcome to the Comprehensive Agent Guidance System. Below is the organized map of 111 specialized markdown files, providing a complete framework for development, design, security, and management.
+
+---
+
+## 🧠 Agent Memory System _(Start Here)_
+
+> **MANDATORY for all agents** — Read before any other file in this directory.
+
+| File | Purpose |
+
+|------|---------|
+| [AGENT_MEMORY.md](AGENT_MEMORY.md) | **Primary init doc** — context, checkpoints, usage |
+| [MEMORY_PROTOCOL.md](MEMORY_PROTOCOL.md) | Full tech spec, JSON schemas, CLI reference |
+| [dashboard/index.html](dashboard/index.html) | Local web dashboard (no server needed) |
+| [setup_memory_hook.ps1](setup_memory_hook.ps1) | One-time installer for `mem` command |
+
+---
+
+### Step 0 — Install (once per machine)
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .Agent\setup_memory_hook.ps1
+```
+
+Opens a **new terminal** and `mem` is live with tab-completion.
+
+---
+
+### Option A — HTML Dashboard (recommended)
+
+```powershell
+mem open
+```
+
+Or open **`.Agent\dashboard\index.html`** directly in any browser.
+
+Dashboard shows live:
+
+- Active task + checkpoint timeline
+- Per-agent token usage bars (only agents used in this workspace)
+- Active models (only models logged in this workspace)
+- Knowledge base + full-text search
+- Optimization tips
+- Auto-refreshes every 5 seconds
+
+---
+
+### Option B — Terminal Commands
+
+```powershell
+mem                              # session status
+mem ctx                          # load context (auto-detects IDE/agent)
+mem ctx --agent antigravity      # explicit agent
+
+mem write "Task title"           # start a task
+mem cp "Step done. Next: ..."    # checkpoint active task
+mem done "Summary"               # complete task
+
+mem log 5000 2000                # log tokens (agent + model auto-detected from history)
+mem log 5000 2000 --agent claude --model claude-3-7-sonnet
+mem report                       # full usage report (workspace models only)
+mem tips                         # token optimization advice
+
+mem search "auth module"         # search memory
+mem know "Title" "Decision"      # save knowledge entry
+mem watch                        # live polling watcher (3s updates)
+mem agent                        # show auto-detected agent + last model used
+```
+
+---
+
+### Model Management (fully dynamic)
+
+Models are tracked **only when used** in this workspace. Pricing lives in `.Agent/memory/model_costs.json` — editable by hand or via:
+
+```powershell
+# List all known models and which are active in this workspace
+python .Agent/scripts/usage_tracker.py --models
+
+# Register a custom model
+python .Agent/scripts/usage_tracker.py --add-model "my-llm" --cost-input 1.5 --cost-output 6.0
+
+# Check which agents/models tab-complete for YOUR workspace
+python .Agent/scripts/shell_completions.py --list
+```
+
+---
+
+### Agent Integration Matrix
+
+| IDE / Agent | How to activate | Snippet file |
+|-------------|-----------------|--------------|
+
+| Antigravity | Paste into `.gemini/GEMINI.md` | [ANTIGRAVITY.md](agents/ANTIGRAVITY.md) |
+| Claude | Drop as `CLAUDE.md` | [CLAUDE.md](agents/CLAUDE.md) |
+| GitHub Copilot | `.github/copilot-instructions.md` | [COPILOT.md](agents/COPILOT.md) |
+| Cursor | `.cursorrules` | [CURSOR.md](agents/CURSOR.md) |
+| VS Code | `Ctrl+Shift+P → Run Task → Mem:` | `.vscode/tasks.json` |
+| JetBrains AI | Import run config | [jetbrains-run-config.xml](agents/jetbrains-run-config.xml) |
+| Zed | Task panel | `.zed/settings.json` |
+| Sublime | Command palette | [sublime-commands.json](agents/sublime-commands.json) |
+| Terminal / any | `MEM_AGENT=mybot mem ctx` | Works everywhere |
+
+Every agent initializes with one command:
+
+```bash
+python .Agent/scripts/mem.py ctx --agent <your-agent-name>
+```
+
+---
 
 ## 📁 [Engineering](Engineering/) (23 Files)
 

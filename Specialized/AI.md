@@ -1,5 +1,9 @@
 # AI Integration & Prompt Engineering
 
+> 🧠 **MANDATORY INIT**: Read `.Agent/AGENT_MEMORY.md` at the start of every session.
+> Run `python .Agent/scripts/memory_engine.py --context --agent <your-name>` to load current task context.
+> This applies to ANY agent — Antigravity, Gemini, Claude, Codex, terminal scripts, or custom tools.
+
 ## Interaction Rules
 
 1. **Context-Aware**: Agents must read the `Gemini.md` and `.Agent/README.md` before any task.
