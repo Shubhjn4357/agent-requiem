@@ -1,0 +1,24 @@
+{
+  "name": "agent-workverse",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "workverse:sync": "python dashboard/workverse-react/sync_runtime.py --once",
+    "workverse:dev": "vite --config dashboard/workverse-react/vite.config.js",
+    "workverse:build": "python dashboard/workverse-react/sync_runtime.py --once && vite build --config dashboard/workverse-react/vite.config.js",
+    "workverse:preview": "python dashboard/workverse-react/sync_runtime.py --once && vite preview --config dashboard/workverse-react/vite.config.js",
+    "workverse:serve": "python dashboard/workverse-react/serve_dist.py"
+  },
+  "dependencies": {
+    "@react-three/drei": "^10.7.6",
+    "@react-three/fiber": "^9.3.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "three": "^0.180.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^5.0.4",
+    "vite": "^7.1.9"
+  }
+}

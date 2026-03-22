@@ -1,0 +1,377 @@
+.workverse-shell {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.workverse-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(280px, 0.9fr);
+  gap: 20px;
+  overflow: hidden;
+  position: relative;
+  background:
+    radial-gradient(circle at top left, rgba(0, 212, 255, 0.18), transparent 42%),
+    radial-gradient(circle at bottom right, rgba(255, 107, 53, 0.14), transparent 36%),
+    linear-gradient(145deg, rgba(12, 18, 34, 0.96), rgba(10, 16, 30, 0.88));
+}
+
+.workverse-hero::before {
+  content: "";
+  position: absolute;
+  inset: -20% auto auto 55%;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(0, 255, 157, 0.12), transparent 68%);
+  pointer-events: none;
+}
+
+.workverse-hero-copy {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.workverse-kicker {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent2);
+  font-weight: 600;
+}
+
+.workverse-hero h2 {
+  font-size: clamp(28px, 5vw, 44px);
+  line-height: 0.95;
+  font-weight: 800;
+  color: #f8fbff;
+}
+
+.workverse-hero p {
+  max-width: 62ch;
+  line-height: 1.65;
+  color: var(--text-dim);
+  font-size: 14px;
+}
+
+.workverse-metric-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.workverse-metric {
+  min-height: 116px;
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(80, 111, 163, 0.35);
+  background: linear-gradient(180deg, rgba(17, 24, 39, 0.85), rgba(11, 18, 31, 0.78));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.workverse-metric span {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.workverse-metric strong {
+  font-size: clamp(22px, 3vw, 30px);
+  line-height: 1;
+  color: #f8fbff;
+}
+
+.workverse-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(320px, 0.95fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.workverse-stage-card {
+  padding: 0;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(15, 23, 42, 0.95), rgba(10, 14, 28, 0.98)),
+    linear-gradient(140deg, rgba(0, 212, 255, 0.08), transparent 40%);
+}
+
+.workverse-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 16px 18px 12px;
+  border-bottom: 1px solid rgba(39, 61, 94, 0.55);
+}
+
+.workverse-canvas-wrap {
+  position: relative;
+  min-height: 420px;
+  background:
+    radial-gradient(circle at 50% 14%, rgba(8, 19, 34, 0.4), rgba(8, 12, 24, 0) 34%),
+    linear-gradient(180deg, rgba(4, 9, 18, 0.94), rgba(5, 10, 18, 1));
+}
+
+#workverse-canvas {
+  display: block;
+  width: 100%;
+  height: min(72vh, 760px);
+  min-height: 440px;
+}
+
+.workverse-overlay {
+  position: absolute;
+  inset: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  pointer-events: none;
+}
+
+.workverse-overlay-card {
+  width: min(280px, 44%);
+  padding: 14px 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(118, 145, 192, 0.22);
+  background: linear-gradient(180deg, rgba(10, 16, 29, 0.84), rgba(14, 21, 38, 0.62));
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(12px);
+}
+
+.workverse-overlay-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent2);
+  margin-bottom: 8px;
+}
+
+.workverse-overlay-value {
+  font-size: 20px;
+  font-weight: 700;
+  color: #f8fbff;
+  margin-bottom: 6px;
+}
+
+.workverse-overlay-card p {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-dim);
+}
+
+.workverse-hints {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+  padding: 14px 18px 18px;
+  border-top: 1px solid rgba(39, 61, 94, 0.55);
+}
+
+.workverse-hints span {
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(66, 94, 138, 0.36);
+  background: rgba(22, 31, 52, 0.7);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+}
+
+.workverse-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.workverse-list,
+.workverse-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.workverse-agent-item,
+.workverse-job-item,
+.workverse-feed-item {
+  position: relative;
+  padding: 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(44, 63, 96, 0.6);
+  background: linear-gradient(180deg, rgba(23, 33, 54, 0.78), rgba(15, 24, 41, 0.62));
+}
+
+.workverse-agent-item.focused {
+  border-color: rgba(0, 212, 255, 0.9);
+  box-shadow: 0 0 0 1px rgba(0, 212, 255, 0.15), 0 12px 28px rgba(0, 212, 255, 0.12);
+}
+
+.workverse-agent-top,
+.workverse-job-top,
+.workverse-feed-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.workverse-badge {
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border: 1px solid rgba(86, 115, 170, 0.4);
+  color: var(--accent2);
+  background: rgba(0, 255, 157, 0.08);
+}
+
+.workverse-agent-role,
+.workverse-job-meta,
+.workverse-feed-meta {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+.workverse-agent-thought,
+.workverse-feed-text,
+.workverse-inspector p {
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.55;
+}
+
+.workverse-job-progress {
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(31, 45, 74, 0.82);
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.workverse-job-progress > span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #00d4ff, #00ff9d);
+}
+
+.workverse-job-meta-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.workverse-feed-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 12px;
+  bottom: 12px;
+  width: 3px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #00d4ff, rgba(0, 255, 157, 0.25));
+}
+
+.workverse-feed-item.signal::before { background: linear-gradient(180deg, #00d4ff, rgba(0, 212, 255, 0.2)); }
+.workverse-feed-item.conference::before { background: linear-gradient(180deg, #f59e0b, rgba(245, 158, 11, 0.18)); }
+.workverse-feed-item.approval::before { background: linear-gradient(180deg, #a78bfa, rgba(167, 139, 250, 0.18)); }
+.workverse-feed-item.cashout::before { background: linear-gradient(180deg, #00ff9d, rgba(0, 255, 157, 0.18)); }
+
+.workverse-inspector {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.workverse-inspector-block {
+  padding: 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(44, 63, 96, 0.6);
+  background: linear-gradient(180deg, rgba(23, 33, 54, 0.74), rgba(15, 24, 41, 0.6));
+}
+
+.workverse-inspector-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.workverse-inspector-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.workverse-empty {
+  padding: 18px;
+  border-radius: 14px;
+  border: 1px dashed rgba(82, 106, 154, 0.48);
+  color: var(--text-muted);
+  text-align: center;
+  background: rgba(17, 24, 39, 0.48);
+}
+
+@media (max-width: 1180px) {
+  .workverse-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .workverse-sidebar {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .workverse-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .workverse-overlay {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .workverse-overlay-card {
+    width: min(320px, 100%);
+  }
+
+  .workverse-sidebar {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  #workverse-canvas {
+    min-height: 360px;
+    height: 56vh;
+  }
+
+  .workverse-toolbar,
+  .workverse-hints {
+    padding-inline: 14px;
+  }
+
+  .workverse-metric-grid {
+    grid-template-columns: 1fr;
+  }
+}
