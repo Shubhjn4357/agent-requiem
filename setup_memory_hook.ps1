@@ -177,7 +177,6 @@ function global:Invoke-AgentMemoryHook {
 }
 
 function global:Set-Location {
-    param([string]$Path)
     Microsoft.PowerShell.Management\Set-Location @args
     Invoke-AgentMemoryHook
 }
